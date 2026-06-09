@@ -1,14 +1,14 @@
 import Link from "next/link";
-import WaveBackground from "./WaveBackground";
+import MinimalBackground from "./MinimalBackground";
 import Chart3D from "./Chart3D";
 
 export default function Hero() {
   return (
     <section className="relative pt-40 pb-[120px] bg-white overflow-hidden">
-      {/* 3D animated wavy background */}
-      <WaveBackground />
-      {/* Soft white fade so content stays readable over the waves */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white pointer-events-none" />
+      {/* Minimal animated background — floating 3D particles + drifting blobs */}
+      <MinimalBackground />
+      {/* Soft white fade so content stays readable over the background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white pointer-events-none" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-5 md:px-6 text-center">
         {/* Badge */}
