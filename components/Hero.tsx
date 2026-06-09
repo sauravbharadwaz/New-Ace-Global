@@ -72,14 +72,55 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#c2c6d8]/20">
-                <div className="flex justify-between items-center mb-2">
-                  <p className="text-sm font-semibold text-[#00174c]">Revenue Growth — Last 7 Months</p>
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">On Track</span>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                {/* Revenue chart */}
+                <div className="lg:col-span-2 bg-white rounded-2xl p-4 shadow-sm border border-[#c2c6d8]/20">
+                  <div className="flex justify-between items-center mb-2">
+                    <p className="text-sm font-semibold text-[#00174c]">Revenue Growth — Last 7 Months</p>
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-semibold">On Track</span>
+                  </div>
+                  {/* Embedded animated 3D bar chart */}
+                  <div className="h-52 w-full">
+                    <Chart3D />
+                  </div>
                 </div>
-                {/* Embedded animated 3D bar chart */}
-                <div className="h-52 w-full">
-                  <Chart3D />
+
+                {/* Your dedicated CPA team */}
+                <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#c2c6d8]/20 flex flex-col">
+                  <p className="text-sm font-semibold text-[#00174c] mb-3">Your dedicated team</p>
+
+                  {[
+                    { img: "/cpa-1.webp", name: "Elena Marsh", role: "Lead CPA" },
+                    { img: "/cpa-2.webp", name: "David Lin", role: "Tax Specialist" },
+                  ].map((m) => (
+                    <div key={m.name} className="flex items-center gap-3 mb-3">
+                      <img
+                        src={m.img}
+                        alt={m.name}
+                        className="w-9 h-9 rounded-full object-cover border border-[#c2c6d8]/30"
+                      />
+                      <div className="min-w-0">
+                        <p className="text-xs font-semibold text-[#00174c] truncate">{m.name}</p>
+                        <p className="text-[11px] text-[#727687] truncate">{m.role}</p>
+                      </div>
+                      <span className="ml-auto w-2 h-2 rounded-full bg-green-400 shrink-0" />
+                    </div>
+                  ))}
+
+                  <div className="border-t border-[#c2c6d8]/20 mt-1 pt-3 space-y-2.5">
+                    {[
+                      "Reconciled May books",
+                      "Filed DE franchise tax",
+                      "Sent investor report",
+                    ].map((a) => (
+                      <div key={a} className="flex items-center gap-2">
+                        <span className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[9px] shrink-0">
+                          ✓
+                        </span>
+                        <span className="text-[11px] text-[#424655] truncate">{a}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
