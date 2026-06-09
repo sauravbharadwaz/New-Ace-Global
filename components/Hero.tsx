@@ -2,7 +2,7 @@ import MinimalBackground from "./MinimalBackground";
 
 export default function Hero() {
   return (
-    <section className="relative pt-40 pb-[120px] bg-white overflow-hidden">
+    <section className="relative pt-32 md:pt-40 pb-20 md:pb-[120px] bg-white overflow-hidden">
       {/* Floating 3D particles (Three.js) + drifting gradient blobs (Framer Motion) */}
       <MinimalBackground />
       {/* Softer white fade keeps the headline crisp and readable */}

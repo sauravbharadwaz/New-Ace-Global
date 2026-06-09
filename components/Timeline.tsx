@@ -211,7 +211,7 @@ export default function Timeline() {
   });
 
   return (
-    <section className="py-[120px] bg-white">
+    <section className="py-16 md:py-[120px] bg-white">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
         {/* Press logos — running marquee */}
         <div className="flex items-center gap-8 mb-20">
@@ -251,7 +251,7 @@ export default function Timeline() {
       {/* Stacking cards */}
       <div ref={containerRef} className="max-w-[940px] mx-auto px-5 md:px-6 pb-[15vh]">
         {steps.map((step, i) => (
-          <div key={step.n} className="h-[68vh] flex items-start">
+          <div key={step.n} className="min-h-[78vh] md:h-[68vh] flex items-start">
             <StepCard step={step} i={i} total={steps.length} progress={scrollYProgress} />
           </div>
         ))}

@@ -2,7 +2,7 @@ const integrations = ["Slack", "Mercury", "Stripe", "Brex", "QuickBooks", "Gusto
 
 export default function DifferenceSection() {
   return (
-    <section className="py-[120px] bg-white">
+    <section className="py-16 md:py-[120px] bg-white">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
         <div className="text-center mb-20">
           <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] text-[#00174c]">
@@ -14,7 +14,7 @@ export default function DifferenceSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* World-Class Accountants */}
-          <div className="bg-[#ebedff] rounded-3xl p-10 flex flex-col justify-between">
+          <div className="bg-[#ebedff] rounded-3xl p-6 md:p-10 flex flex-col justify-between">
             <div>
               <h4 className="text-2xl font-medium text-[#00174c] mb-4">World-Class Accountants</h4>
               <p className="text-[#727687]">
@@ -42,7 +42,7 @@ export default function DifferenceSection() {
           </div>
 
           {/* Powerful Software */}
-          <div className="bg-[#0053ce]/5 rounded-3xl p-10 flex flex-col justify-between">
+          <div className="bg-[#0053ce]/5 rounded-3xl p-6 md:p-10 flex flex-col justify-between">
             <div>
               <h4 className="text-2xl font-medium text-[#00174c] mb-4">Powerful Financial Software</h4>
               <p className="text-[#727687]">

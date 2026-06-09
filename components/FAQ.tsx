@@ -33,7 +33,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="flex justify-between items-center w-full text-left"
         onClick={() => setOpen(!open)}
       >
-        <span className="text-2xl font-medium text-[#00174c]">{q}</span>
+        <span className="text-lg md:text-2xl font-medium text-[#00174c]">{q}</span>
         <span
           className={`ml-4 flex-shrink-0 text-[#727687] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         >
@@ -51,12 +51,12 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <section className="py-[120px] bg-white">
+    <section className="py-16 md:py-[120px] bg-white">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Sticky CTA card */}
           <div className="lg:col-span-5">
-            <div className="bg-[#172d65] text-white p-12 rounded-[40px] sticky top-32">
+            <div className="bg-[#172d65] text-white p-8 md:p-12 rounded-[32px] md:rounded-[40px] sticky top-32">
               <h2 className="text-3xl font-medium mb-6">Have more questions?</h2>
               <p className="text-[#dbe1ff]/60 mb-10 leading-relaxed">
                 We&apos;re here to help you navigate startup finance. Talk to one of our experts today.

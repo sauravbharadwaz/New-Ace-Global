@@ -102,7 +102,7 @@ function MarqueeRow({ items, reverse }: { items: Review[]; reverse?: boolean }) 
 
 export default function ReviewsWall() {
   return (
-    <section className="py-[120px] bg-[#f2f3ff] overflow-hidden">
+    <section className="py-16 md:py-[120px] bg-[#f2f3ff] overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6 mb-16">
         {/* Pull quote */}
         <div className="max-w-3xl mx-auto text-center">

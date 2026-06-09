@@ -94,7 +94,7 @@ function TaxMockup() {
 
 export default function Services() {
   return (
-    <section className="py-[120px] bg-[#f2f3ff] overflow-hidden">
+    <section className="py-16 md:py-[120px] bg-[#f2f3ff] overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6 space-y-24">
         {services.map((s) => (
           <div

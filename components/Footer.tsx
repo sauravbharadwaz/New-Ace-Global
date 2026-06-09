@@ -70,12 +70,12 @@ export default function Footer() {
             © {new Date().getFullYear()} Ace Global. All rights reserved.
           </p>
           {/* Newsletter */}
-          <div className="flex items-center gap-4 bg-white/5 p-2 rounded-full px-4">
+          <div className="flex items-center gap-3 bg-white/5 p-2 rounded-full px-4 w-full md:w-auto">
             <span className="text-[#dbe1ff]/60 text-xs">Join the newsletter</span>
             <input
               type="email"
               placeholder="email@company.com"
-              className="bg-transparent border-none text-white text-xs focus:outline-none w-32 placeholder:text-white/30"
+              className="bg-transparent border-none text-white text-xs focus:outline-none flex-1 min-w-0 md:w-32 placeholder:text-white/30"
             />
             <button className="bg-[#0053ce] text-white w-6 h-6 rounded-full flex items-center justify-center">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

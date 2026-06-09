@@ -1,6 +1,6 @@
 export default function BentoGrid() {
   return (
-    <section className="py-[120px] bg-[#f2f3ff]">
+    <section className="py-16 md:py-[120px] bg-[#f2f3ff]">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
         <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] tracking-[-0.01em] text-[#00174c] text-center mb-12">
           All-in-one accounting platform <br />
