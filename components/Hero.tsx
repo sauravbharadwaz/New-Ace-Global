@@ -1,18 +1,12 @@
-import Hero3DBackground from "./Hero3DBackground";
+import MinimalBackground from "./MinimalBackground";
 
 export default function Hero() {
   return (
     <section className="relative pt-40 pb-[120px] bg-white overflow-hidden">
-      {/* Moving 3D background — floating low-poly shapes */}
-      <Hero3DBackground />
-      {/* Soft radial white fade keeps the headline readable over the 3D shapes */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.45) 45%, rgba(255,255,255,0) 80%)",
-        }}
-      />
+      {/* Floating 3D particles (Three.js) + drifting gradient blobs (Framer Motion) */}
+      <MinimalBackground />
+      {/* Softer white fade keeps the headline crisp and readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white pointer-events-none" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-5 md:px-6 text-center">
         {/* Badge */}
