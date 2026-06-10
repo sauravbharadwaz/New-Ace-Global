@@ -1,66 +1,175 @@
-const integrations = ["Slack", "Mercury", "Stripe", "Brex", "QuickBooks", "Gusto"];
+/* Photo card with name + title overlaid at the bottom */
+function PhotoCard({
+  src,
+  name,
+  role,
+  bg,
+  objectPos = "object-top",
+}: {
+  src: string;
+  name: string;
+  role: string;
+  bg: string;
+  objectPos?: string;
+}) {
+  return (
+    <div className={`relative rounded-3xl overflow-hidden h-[380px] md:h-[440px] ${bg}`}>
+      <img
+        src={src}
+        alt={name}
+        className={`absolute inset-0 w-full h-full object-cover ${objectPos}`}
+      />
+      {/* light fade so the dark text stays readable */}
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/90 via-white/35 to-transparent" />
+      <div className="absolute bottom-6 left-6 right-6">
+        <p className="text-2xl font-semibold text-[#00174c] leading-tight">{name}</p>
+        <p className="text-sm text-[#0053ce] font-medium mt-1">{role}</p>
+      </div>
+    </div>
+  );
+}
+
+/* "Accounting on autopilot" — mini cash balance chart */
+function AutopilotCard() {
+  return (
+    <div className="rounded-3xl bg-[#ebedff] p-8 h-[380px] md:h-[440px] flex flex-col">
+      <h3 className="text-3xl font-semibold text-[#0053ce] leading-tight mb-2">
+        Accounting on
+        <br />
+        autopilot
+      </h3>
+      <div className="mt-auto bg-white rounded-2xl shadow-lg p-5">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-sm font-semibold text-[#00174c]">Cash Balance</span>
+          <span className="text-xs bg-green-100 text-green-700 px-2.5 py-1 rounded-full font-semibold">
+            $100M+
+          </span>
+        </div>
+        <svg viewBox="0 0 300 90" className="w-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="cashFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#0053ce" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#0053ce" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,75 L25,68 L50,72 L75,55 L100,60 L125,42 L150,48 L175,35 L200,40 L225,26 L250,30 L275,15 L300,20 L300,90 L0,90 Z"
+            fill="url(#cashFill)"
+          />
+          <path
+            d="M0,75 L25,68 L50,72 L75,55 L100,60 L125,42 L150,48 L175,35 L200,40 L225,26 L250,30 L275,15 L300,20"
+            fill="none"
+            stroke="#0053ce"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+/* "Onboard in Minutes" — circular check + progress bar */
+function OnboardCard() {
+  const r = 44;
+  const c = 2 * Math.PI * r;
+  return (
+    <div className="rounded-3xl bg-[#ebedff] p-8 h-[380px] md:h-[440px] flex flex-col">
+      <h3 className="text-3xl font-semibold text-[#00174c] leading-tight mb-2">Onboard in Minutes</h3>
+      <div className="mt-auto bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center">
+        <div className="relative w-24 h-24 mb-5">
+          <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r={r} fill="none" stroke="#dae2ff" strokeWidth="8" />
+            <circle
+              cx="50"
+              cy="50"
+              r={r}
+              fill="none"
+              stroke="#0053ce"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeDasharray={c}
+              strokeDashoffset={c * 0.1}
+            />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full bg-[#0053ce] flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm font-semibold text-[#00174c] mb-2">90% Complete</p>
+        <div className="w-full h-2 bg-[#dae2ff] rounded-full overflow-hidden">
+          <div className="h-full bg-[#0053ce] rounded-full" style={{ width: "90%" }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Blue testimonial card */
+function TestimonialCard() {
+  return (
+    <div className="rounded-3xl bg-gradient-to-br from-[#196bfa] to-[#0040a2] p-8 h-[380px] md:h-[440px] flex flex-col justify-between text-white">
+      <p className="text-2xl md:text-[28px] font-semibold leading-snug">
+        &ldquo;Fantastic team, they got us set up super quickly. Very happy with Ace Global.&rdquo;
+      </p>
+      <div>
+        <p className="font-semibold">Sebastian Janisch</p>
+        <p className="text-white/70 text-sm">Co-Founder @ Bayesline</p>
+      </div>
+    </div>
+  );
+}
 
 export default function DifferenceSection() {
   return (
     <section className="py-16 md:py-[120px] bg-white">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] text-[#00174c]">
-            The Ace Global Difference —<br />
-            Expert Accountants +{" "}
-            <span className="text-[#0053ce]">Software</span>
-          </h2>
+        {/* Row 1 — team + autopilot */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 md:mb-20">
+          <PhotoCard
+            src="/team-jay.webp"
+            name="Jay Meredith, CPA"
+            role="Director of Accounting"
+            bg="bg-[#ebedff]"
+          />
+          <PhotoCard
+            src="/team-lisa.webp"
+            name="Lisa Hope, CPA"
+            role="Senior Director of Tax & Accounting"
+            bg="bg-white"
+            objectPos="object-[center_22%]"
+          />
+          <AutopilotCard />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* World-Class Accountants */}
-          <div className="bg-[#ebedff] rounded-3xl p-6 md:p-10 flex flex-col justify-between">
-            <div>
-              <h4 className="text-2xl font-medium text-[#00174c] mb-4">World-Class Accountants</h4>
-              <p className="text-[#727687]">
-                Real people, not just algorithms. Your dedicated CPA is always one message away on
-                Slack or email.
-              </p>
-            </div>
-            <div className="mt-12 flex -space-x-4">
-              {[
-                { initials: "SK", bg: "bg-[#0053ce]" },
-                { initials: "JP", bg: "bg-[#4658aa]" },
-                { initials: "AR", bg: "bg-[#172d65]" },
-              ].map((p) => (
-                <div
-                  key={p.initials}
-                  className={`w-14 h-14 rounded-full ${p.bg} border-4 border-[#ebedff] flex items-center justify-center text-white text-xs font-semibold`}
-                >
-                  {p.initials}
-                </div>
-              ))}
-              <div className="w-14 h-14 rounded-full border-4 border-[#ebedff] bg-[#0053ce] text-white flex items-center justify-center font-semibold text-sm">
-                50+
-              </div>
-            </div>
-          </div>
+        {/* Heading */}
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-[28px] md:text-[40px] font-semibold leading-[1.15] text-[#00174c]">
+            The Ace Global Difference
+            <br />
+            <span className="text-[#0053ce]">Expert Accountants + Software</span>
+          </h2>
+          <p className="text-[#727687] text-lg max-w-xl mx-auto mt-5">
+            Ace Global is the leading technology platform with experienced accounting and tax
+            expertise.
+          </p>
+        </div>
 
-          {/* Powerful Software */}
-          <div className="bg-[#0053ce]/5 rounded-3xl p-6 md:p-10 flex flex-col justify-between">
-            <div>
-              <h4 className="text-2xl font-medium text-[#00174c] mb-4">Powerful Financial Software</h4>
-              <p className="text-[#727687]">
-                Automate the boring stuff. Our platform integrates with your entire stack to pull
-                data and find savings automatically.
-              </p>
-            </div>
-            <div className="mt-12 flex gap-4 flex-wrap">
-              {integrations.map((name) => (
-                <div
-                  key={name}
-                  className="p-3 bg-white rounded-xl shadow-sm flex items-center justify-center min-w-[56px]"
-                >
-                  <span className="text-xs font-semibold text-[#0053ce]">{name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Row 2 — onboard + photo + testimonial */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <OnboardCard />
+          <PhotoCard
+            src="/team-smile.webp"
+            name="Real human experts"
+            role="On your team, on Slack"
+            bg="bg-[#ebedff]"
+          />
+          <TestimonialCard />
         </div>
       </div>
     </section>
