@@ -18,16 +18,16 @@ export default function BentoGrid() {
             </div>
             <div className="mt-8 flex gap-4 transition-transform duration-500 group-hover:translate-x-2">
               {[
-                { initials: "SK", bg: "bg-[#0053ce]" },
-                { initials: "JP", bg: "bg-[#4658aa]" },
-                { initials: "AR", bg: "bg-[#545d68]" },
+                { src: "/avatar-1.webp", name: "Sara Kim" },
+                { src: "/avatar-2.webp", name: "James Park" },
+                { src: "/avatar-3.webp", name: "Anita Rao" },
               ].map((p) => (
-                <div
-                  key={p.initials}
-                  className={`w-16 h-16 rounded-full ${p.bg} border-4 border-[#ebedff] flex items-center justify-center text-white font-semibold text-sm`}
-                >
-                  {p.initials}
-                </div>
+                <img
+                  key={p.name}
+                  src={p.src}
+                  alt={p.name}
+                  className="w-16 h-16 rounded-full object-cover border-4 border-[#ebedff]"
+                />
               ))}
               <div className="w-16 h-16 rounded-full bg-[#0053ce]/10 flex items-center justify-center text-[#0053ce] font-semibold text-sm">
                 +12
