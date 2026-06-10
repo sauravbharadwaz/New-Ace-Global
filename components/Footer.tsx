@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-/* Small white tile with a generic AI glyph (placeholder marks — drop official
+/* Small tile with a generic AI glyph (placeholder marks — drop official
    provider SVGs into /public/logos and swap for <img> if desired) */
 function AiTile({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#00174c]">
+    <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white">
       {children}
     </div>
   );
@@ -21,7 +21,7 @@ function SocialCard({
     <a
       href="#"
       aria-label={label}
-      className="bg-[#ebedff] rounded-3xl flex items-center justify-center h-28 md:h-auto text-[#00174c] hover:text-[#0053ce] transition-colors"
+      className="bg-white/[0.06] rounded-3xl flex items-center justify-center h-28 md:h-auto text-white hover:text-[#b2c5ff] hover:bg-white/10 transition-colors"
     >
       {children}
     </a>
@@ -30,14 +30,14 @@ function SocialCard({
 
 function LinkCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="bg-[#ebedff] rounded-3xl p-7">
-      <p className="text-lg font-semibold text-[#00174c] mb-5">{title}</p>
+    <div className="bg-white/[0.06] rounded-3xl p-7">
+      <p className="text-lg font-semibold text-white mb-5">{title}</p>
       <ul className="space-y-4">
         {items.map((item) => (
           <li key={item}>
             <Link
               href="#"
-              className="text-[#5a5f73] hover:text-[#0053ce] text-sm transition-colors leading-relaxed"
+              className="text-[#dbe1ff]/60 hover:text-white text-sm transition-colors leading-relaxed"
             >
               {item}
             </Link>
@@ -50,28 +50,28 @@ function LinkCard({ title, items }: { title: string; items: string[] }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-white pt-10 pb-12">
+    <footer className="bg-[#172d65] pt-12 pb-12">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6 space-y-5">
         {/* Newsletter + AI summary card */}
-        <div className="bg-[#ebedff] rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+        <div className="bg-white/[0.06] rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
           <div className="flex-1">
-            <h3 className="text-2xl md:text-3xl font-semibold text-[#00174c] mb-6">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
               Join our newsletter
             </h3>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-white rounded-xl px-4 py-3.5 text-sm text-[#00174c] placeholder:text-[#727687] focus:outline-none focus:ring-2 focus:ring-[#0053ce]/30"
+                className="flex-1 bg-white rounded-xl px-4 py-3.5 text-sm text-[#00174c] placeholder:text-[#727687] focus:outline-none focus:ring-2 focus:ring-[#0053ce]/40"
               />
-              <button className="bg-[#172d65] text-white px-7 py-3.5 rounded-xl text-sm font-medium hover:bg-[#0053ce] transition-colors">
+              <button className="bg-[#0053ce] text-white px-7 py-3.5 rounded-xl text-sm font-medium hover:bg-[#196bfa] transition-colors">
                 Subscribe
               </button>
             </div>
           </div>
 
           <div className="flex items-center gap-6">
-            <p className="text-xl md:text-2xl font-semibold text-[#00174c] leading-snug max-w-[220px]">
+            <p className="text-xl md:text-2xl font-semibold text-white leading-snug max-w-[220px]">
               Get an AI summary of Ace Global
             </p>
             <div className="flex gap-3">
@@ -97,24 +97,24 @@ export default function Footer() {
 
         {/* Brand row + social cards */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-          <div className="md:col-span-7 bg-[#ebedff] rounded-3xl p-8 flex flex-col sm:flex-row sm:items-center gap-6">
-            <Link href="/" className="text-3xl font-semibold text-[#0053ce] shrink-0">
+          <div className="md:col-span-7 bg-white/[0.06] rounded-3xl p-8 flex flex-col sm:flex-row sm:items-center gap-6">
+            <Link href="/" className="text-3xl font-semibold text-white shrink-0">
               Ace Global
             </Link>
-            <span className="hidden sm:block w-px h-10 bg-[#c2c6d8]/60" />
-            <p className="text-[#424655] text-base">
+            <span className="hidden sm:block w-px h-10 bg-white/20" />
+            <p className="text-[#dbe1ff]/70 text-base">
               Startup bookkeeping &amp; tax automation
             </p>
             <div className="sm:ml-auto">
-              <span className="inline-flex items-center gap-2 border border-green-500/60 text-[#00174c] rounded-lg px-4 py-2.5 text-sm bg-white">
+              <span className="inline-flex items-center gap-2 border border-green-400/50 text-[#00174c] rounded-lg px-4 py-2.5 text-sm bg-white">
                 Review us <span className="text-green-500">★</span>
                 <span className="font-semibold">Trustpilot</span>
               </span>
             </div>
           </div>
 
-          {/* X */}
           <div className="md:col-span-1 hidden md:block" />
+          {/* X */}
           <SocialCard label="X (Twitter)">
             <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -176,10 +176,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-[#727687] text-xs">
+          <p className="text-[#dbe1ff]/40 text-xs">
             © {new Date().getFullYear()} Ace Global. All rights reserved.
           </p>
-          <p className="text-[#727687] text-xs">Made for founders, by founders.</p>
+          <p className="text-[#dbe1ff]/40 text-xs">Made for founders, by founders.</p>
         </div>
       </div>
     </footer>
