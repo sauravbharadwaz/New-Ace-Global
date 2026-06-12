@@ -119,7 +119,7 @@ function TestimonialCard() {
   return (
     <div className="rounded-3xl bg-gradient-to-br from-[#196bfa] to-[#0040a2] p-8 h-[380px] md:h-[440px] flex flex-col justify-between text-white">
       <p className="text-2xl md:text-[28px] font-semibold leading-snug">
-        &ldquo;Fantastic team, they got us set up super quickly. Very happy with Ace Global.&rdquo;
+        &ldquo;Fantastic team. Fast onboarding, clean books, and very easy to work with. We&apos;re very happy with Ace Global.&rdquo;
       </p>
       <div>
         <p className="font-semibold">Sebastian Janisch</p>
