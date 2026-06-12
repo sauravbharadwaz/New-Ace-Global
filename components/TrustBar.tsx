@@ -1,3 +1,5 @@
+import RotatingWord from "./RotatingWord";
+
 // Monogram-style logo lockups (a simple mark + wordmark) for Ace Global's
 // clients. Drop each client's official logo file into /public/logos/ and
 // swap the <Mark> for <img src="/logos/{slug}.svg" /> when available.
@@ -56,7 +58,9 @@ export default function TrustBar() {
     <section className="py-16 bg-white">
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
         <p className="text-center text-xs font-medium text-[#c2c6d8] mb-10 tracking-widest uppercase">
-          We&apos;ve helped thousands of startups manage bookkeeping, taxes and more
+          We&apos;ve helped thousands of{" "}
+          <RotatingWord words={["farm", "trucking", "retail"]} className="text-[#0053ce]/60" />{" "}
+          businesses manage bookkeeping, taxes and more
         </p>
       </div>
 
