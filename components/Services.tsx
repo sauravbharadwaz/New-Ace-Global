@@ -6,6 +6,7 @@ const services = [
     desc: "Your books stay continuously updated across banks, Stripe, and business systems — giving you live visibility into burn, runway, cash flow, and what needs attention.",
     reverse: false,
     mockup: "bookkeeping",
+    href: "/bookkeeping",
   },
   {
     tag: "Corporate Tax",
@@ -14,6 +15,7 @@ const services = [
     desc: "From Delaware Franchise Tax to complex multi-state filings, your CPA team and AI agent keep your company compliant, track deadlines, and surface what needs attention — without you chasing forms or notices.",
     reverse: true,
     mockup: "taxes",
+    href: "/corporate-taxes",
   },
 ];
 
@@ -113,7 +115,7 @@ export default function Services() {
               </h3>
               <p className="text-lg text-[#727687] mb-8 leading-relaxed">{s.desc}</p>
               <a
-                href="#"
+                href={s.href}
                 className="text-[#0053ce] font-medium flex items-center gap-2 group text-sm"
               >
                 Learn More{" "}

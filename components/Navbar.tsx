@@ -26,8 +26,38 @@ export default function Navbar() {
         </Link>
 
         {/* Nav links — centered in the header */}
-        <div className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
-          {["Platform", "Resources", "Community", "Pricing", "Book a demo"].map((item) => (
+        <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+          {/* Platform dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-1 text-[#00174c] text-sm hover:text-[#0053ce] transition-colors duration-200 whitespace-nowrap py-2">
+              Platform
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 hidden group-hover:block">
+              <div className="bg-[#f2f3ff] rounded-2xl shadow-[0px_12px_40px_rgba(15,38,120,0.14)] border border-[#c2c6d8]/30 p-6 w-[420px] space-y-5">
+                <Link href="/bookkeeping" className="block group/item">
+                  <p className="text-base font-semibold text-[#00174c] group-hover/item:text-[#0053ce] transition-colors">
+                    Bookkeeping
+                  </p>
+                  <p className="text-sm text-[#727687] mt-0.5">
+                    Get your books closed and your financials monthly, quarterly, or annually.
+                  </p>
+                </Link>
+                <Link href="/corporate-taxes" className="block group/item">
+                  <p className="text-base font-semibold text-[#00174c] group-hover/item:text-[#0053ce] transition-colors">
+                    Corporate Taxes
+                  </p>
+                  <p className="text-sm text-[#727687] mt-0.5">
+                    Get your Delaware Franchise Tax, Federal &amp; State Corporate Income Taxes filed.
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {["Resources", "Community", "Pricing", "Book a demo"].map((item) => (
             <Link
               key={item}
               href="#"
@@ -66,7 +96,21 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-[#c2c6d8]/30 px-5 py-4 flex flex-col gap-4">
-          {["Platform", "Resources", "Community", "Pricing", "Book a demo", "Sign in"].map((item) => (
+          <Link
+            href="/bookkeeping"
+            className="text-[#00174c] text-sm font-medium"
+            onClick={() => setMenuOpen(false)}
+          >
+            Bookkeeping
+          </Link>
+          <Link
+            href="/corporate-taxes"
+            className="text-[#00174c] text-sm font-medium"
+            onClick={() => setMenuOpen(false)}
+          >
+            Corporate Taxes
+          </Link>
+          {["Resources", "Community", "Pricing", "Book a demo", "Sign in"].map((item) => (
             <Link
               key={item}
               href="#"
