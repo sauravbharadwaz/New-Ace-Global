@@ -132,13 +132,13 @@ export default function DifferenceSection() {
         {/* Row 1 — team + autopilot */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 md:mb-20">
           <PhotoCard
-            src="/team-david.png"
+            src="/team-david.webp"
             name="David Z."
             role="15+ years of experience"
             bg="bg-[#ebedff]"
           />
           <PhotoCard
-            src="/team-anil.png"
+            src="/team-anil.webp"
             name="Anil R."
             role="12+ years of experience"
             bg="bg-white"
