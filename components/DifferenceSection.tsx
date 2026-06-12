@@ -15,7 +15,9 @@ function PhotoCard({
   imgClass?: string;
 }) {
   return (
-    <div className={`relative rounded-3xl overflow-hidden h-[380px] md:h-[440px] ${bg}`}>
+    <div
+      className={`relative rounded-3xl overflow-hidden h-[380px] md:h-[440px] ring-1 ring-[#c2c6d8]/40 shadow-[0_8px_24px_rgba(15,38,120,0.08)] ${bg}`}
+    >
       <img
         src={src}
         alt={name}
