@@ -1,4 +1,5 @@
 import CountUp from "./CountUp";
+import RotatingWord from "./RotatingWord";
 
 export default function BentoGrid() {
   return (
@@ -6,7 +7,12 @@ export default function BentoGrid() {
       <div className="max-w-[1280px] mx-auto px-5 md:px-6">
         <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] tracking-[-0.01em] text-[#00174c] text-center mb-12">
           All-in-one accounting platform <br />
-          built for <span className="text-[#0053ce]">startups</span>.
+          built for{" "}
+          <RotatingWord
+            words={["startups", "small businesses", "CPA firms", "agencies", "founders"]}
+            className="text-[#0053ce]"
+          />
+          .
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:h-[620px]">
