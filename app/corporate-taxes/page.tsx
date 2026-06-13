@@ -105,13 +105,114 @@ export default function CorporateTaxesPage() {
               Your CPA team and AI agent prepare every filing, track every deadline, and keep your
               company compliant — without you chasing forms or notices.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-4">
               <button className="bg-[#0053ce] text-white px-6 md:px-8 py-2.5 md:py-4 rounded-full font-medium text-sm md:text-lg hover:bg-[#0053ce]/90 transition-all shadow-xl shadow-[#0053ce]/25">
                 Get started
               </button>
               <button className="bg-[#94a6fe] text-[#243889] px-6 md:px-8 py-2.5 md:py-4 rounded-full font-medium text-sm md:text-lg hover:bg-[#94a6fe]/80 transition-all">
                 Book a demo
               </button>
+            </div>
+            <p className="text-xs text-[#727687] mb-16">
+              No credit card required · Cancel anytime · Onboard in 15 minutes
+            </p>
+
+            {/* Hero dashboard visual */}
+            <div className="relative max-w-5xl mx-auto">
+              <div className="absolute -inset-4 bg-[#0053ce]/5 blur-3xl rounded-full pointer-events-none" />
+              <img
+                src="/taxes-hero.webp"
+                alt="Ace Global tax compliance dashboard"
+                className="relative w-full rounded-3xl shadow-2xl border border-[#c2c6d8]/30 animate-float"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Taxes done right — 3 feature cards */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-[1280px] mx-auto px-5 md:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] text-[#00174c] mb-3">
+                Every corporate tax, done right.
+              </h2>
+              <p className="text-[#727687] text-lg max-w-xl mx-auto">
+                From your home state to every state you operate in — prepared, reviewed, and filed.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Delaware Franchise Tax",
+                  desc: "We calculate the lowest-cost method, file your franchise tax, and keep your annual report on schedule.",
+                },
+                {
+                  title: "State Income Taxes",
+                  desc: "Returns filed for every state you operate in, with multi-state apportionment handled for you.",
+                },
+                {
+                  title: "Federal Income Tax",
+                  desc: "Your federal corporate return (1120 / 1120-S) prepared, reviewed by a CPA, and filed on time.",
+                },
+              ].map((c) => (
+                <div
+                  key={c.title}
+                  className="bg-[#f2f3ff] rounded-3xl p-8 flex flex-col"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#0053ce]/10 flex items-center justify-center text-[#0053ce] mb-5">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium text-[#00174c] mb-2">{c.title}</h3>
+                  <p className="text-[#727687] text-sm leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* International compliance — penalty callouts */}
+        <section className="py-16 md:py-24 bg-[#f2f3ff]">
+          <div className="max-w-[1280px] mx-auto px-5 md:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] text-[#00174c] mb-3">
+                Foreign-owned? Stay penalty-free.
+              </h2>
+              <p className="text-[#727687] text-lg max-w-xl mx-auto">
+                The forms with the biggest penalties for missing them — handled before they're due.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  form: "Form 5472",
+                  desc: "Required for foreign-owned US corporations reporting related-party transactions.",
+                  penalty: "$25,000",
+                },
+                {
+                  form: "Form 5471",
+                  desc: "For US persons with ownership in foreign corporations and subsidiaries.",
+                  penalty: "$10,000",
+                },
+                {
+                  form: "FBAR",
+                  desc: "Foreign bank account reporting for accounts over the $10,000 threshold.",
+                  penalty: "$10,000+",
+                },
+              ].map((c) => (
+                <div
+                  key={c.form}
+                  className="bg-white rounded-3xl p-8 flex flex-col border border-[#c2c6d8]/20 shadow-sm"
+                >
+                  <h3 className="text-xl font-medium text-[#00174c] mb-2">{c.form}</h3>
+                  <p className="text-[#727687] text-sm leading-relaxed mb-6 flex-1">{c.desc}</p>
+                  <div className="bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                    <p className="text-xs text-red-500 font-medium">Penalty if missed</p>
+                    <p className="text-2xl font-semibold text-red-600">{c.penalty}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -252,6 +353,121 @@ export default function CorporateTaxesPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Comparison table */}
+        <section className="py-16 md:py-[120px] bg-white">
+          <div className="max-w-[1100px] mx-auto px-5 md:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] text-[#00174c] mb-3">
+                Ace Global vs. the alternatives
+              </h2>
+              <p className="text-[#727687] text-lg">
+                A modern tax team vs. the old way of filing.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-3xl border border-[#c2c6d8]/30 shadow-sm">
+              <div className="grid grid-cols-4 bg-[#172d65] text-white text-sm font-medium">
+                <div className="p-4 md:p-5" />
+                <div className="p-4 md:p-5 text-center bg-[#0053ce]">Ace Global</div>
+                <div className="p-4 md:p-5 text-center text-[#dbe1ff]/80">Local CPA firm</div>
+                <div className="p-4 md:p-5 text-center text-[#dbe1ff]/80">DIY filing</div>
+              </div>
+              {[
+                ["All-inclusive pricing", true, false, false],
+                ["Federal, state & franchise filings", true, true, false],
+                ["Multi-state apportionment", true, true, false],
+                ["International forms (5472/5471/FBAR)", true, false, false],
+                ["Deadline tracking & reminders", true, false, false],
+                ["AI agent on WhatsApp/iMessage", true, false, false],
+                ["Filing confirmations", true, true, false],
+                ["No long-term contracts", true, false, true],
+              ].map((row, i) => (
+                <div
+                  key={row[0] as string}
+                  className={`grid grid-cols-4 text-sm ${i % 2 ? "bg-[#f2f3ff]" : "bg-white"}`}
+                >
+                  <div className="p-4 md:p-5 text-[#00174c] font-medium">{row[0]}</div>
+                  {[row[1], row[2], row[3]].map((v, j) => (
+                    <div key={j} className="p-4 md:p-5 flex items-center justify-center">
+                      {v ? (
+                        <span className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                      ) : (
+                        <span className="w-6 h-6 rounded-full bg-[#c2c6d8]/30 flex items-center justify-center text-[#727687]">
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials strip */}
+        <section className="py-16 md:py-[120px] bg-[#f2f3ff]">
+          <div className="max-w-[1280px] mx-auto px-5 md:px-6">
+            <h2 className="text-[28px] md:text-[40px] font-medium leading-[1.2] tracking-[-0.01em] text-[#00174c] text-center mb-12 max-w-2xl mx-auto">
+              &ldquo;Every filing on time, no surprises at year-end.&rdquo;
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  quote:
+                    "We handle federal, state, and franchise filings without me having to chase anything. It just gets done.",
+                  name: "James Wilson",
+                  role: "Owner, Wilson Auto Repair",
+                  initials: "JW",
+                  color: "bg-[#0053ce]",
+                },
+                {
+                  quote:
+                    "The only team that actually understands small business compliance. They keep us ahead on taxes and deadlines.",
+                  name: "Aria Song",
+                  role: "CEO, Horizon Lab",
+                  initials: "AS",
+                  color: "bg-[#4658aa]",
+                },
+                {
+                  quote:
+                    "Before Ace Global, tax season was always stressful. Now we know exactly what to expect before filing.",
+                  name: "David Kim",
+                  role: "Founder, Kim Home Services",
+                  initials: "DK",
+                  color: "bg-[#172d65]",
+                },
+              ].map((t) => (
+                <div
+                  key={t.name}
+                  className="bg-white rounded-2xl p-6 shadow-sm border border-[#c2c6d8]/20 flex flex-col gap-4"
+                >
+                  <div className="flex text-yellow-400 text-sm">{"★★★★★"}</div>
+                  <p className="text-[#424655] text-sm leading-relaxed flex-1">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-3 pt-2 border-t border-[#c2c6d8]/20">
+                    <div
+                      className={`w-9 h-9 rounded-full ${t.color} flex items-center justify-center text-white text-xs font-semibold shrink-0`}
+                    >
+                      {t.initials}
+                    </div>
+                    <div>
+                      <p className="text-[#00174c] text-sm font-medium">{t.name}</p>
+                      <p className="text-[#727687] text-xs">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
